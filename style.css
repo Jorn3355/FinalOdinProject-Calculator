@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 5% 0;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    width: 400px;
+    height: 550px;
+    background: lightgrey;
+    margin: auto;
+    border: 5px solid black;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.display {
+    width: 100%;
+    background: white;
+    border: 3px solid black;
+    margin: auto;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.first, .second {
+    font-size: 24px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.first {
+    min-height: 48px;
+    margin-bottom: 10px;
+}
+
+.second {
+    display: flex;
+    flex-flow: column-reverse;
+    min-height: 48px;
+    margin-top: 10px;
+}
+
+.btn {
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 20%;
+    padding: 4px;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+.btnWrapper {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    border: 0px solid black;
+    width: 100%;
+    gap: 1.25%;
+    flex: 1;
+}
+
+.bigBtnWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3px;
+    margin: 8px 0;
+}
+
+.clearBtn, .deleteBtn {
+    width: 49%;
+    font-size: 24px;
+    border: 3px solid black;
+    border-radius: 8px;
+}
+
+.clearBtn {
+    background: peachpuff;
+}
+
+.deleteBtn {
+    background: lightblue;
+}
+
+.clearBtn:hover {
+    background: lightsalmon;
+}
+
+.deleteBtn:hover {
+    background: lightskyblue;
+}
