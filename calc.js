@@ -1,14 +1,13 @@
-// Variables
-const btnList = ["7", "8", "9", "÷", "4", "5", "6", "x", "1", "2", "3", "-", ".", "0", "=", "+"]
+// Variables before DOM
 const clearBtn = document.querySelector(".clearBtn")
 const deleteBtn = document.querySelector(".deleteBtn")
 const first = document.querySelector(".first")
 const second = document.querySelector(".second")
-const dot = document.querySelector(".dot")
 let current = first
 let operator = ""
 let num
-
+const btnList = ["7", "8", "9", "÷", "4", "5", "6", "x", "1", "2", "3", "-", ".", "0", "=", "+"]
+// DOM
 let i = 0
 while (i < 16) {
     let btn = document.createElement("button")
@@ -25,14 +24,20 @@ while (i < 16) {
     i++
 }
 
+// Variables Afer DOM
 const nums = Array.from(document.querySelectorAll(".num"))
+const operators = Array.from(document.querySelectorAll(".operator"))
+const dot = document.querySelector(".dot")
+const equal = document.querySelector(".equal")
+
+// Listeners
+
 nums.forEach((item) => {
     item.addEventListener("click", () => {
         current.textContent += item.textContent
     })
 })
 
-const operators = Array.from(document.querySelectorAll(".operator"))
 operators.forEach((item) => {
     item.addEventListener("click", () => {
         if(current === first && current.textContent !== "") {
@@ -48,7 +53,27 @@ operators.forEach((item) => {
     })
 })
 
-clearBtn.addEventListener("click", clear())
+dot.addEventListener("click", () => {
+    if(!current.textContent.includes(".")) {current.textContent += "."} else {return}
+})
+
+clearBtn.addEventListener("click", clear)
+
+equal.addEventListener("click", () => {
+    let num = operate(parseFloat(first.textContent), parseFloat(second.textContent), operator)
+    clear()
+    current.textContent += num.toString()
+})
+
+deleteBtn.addEventListener("click", () => {
+    if(current === second && second.textContent === ""){
+        operator = ""
+        current = first
+    }
+    current.textContent = current.textContent.slice(0, -1)
+})
+
+// Global Functions
 
 function clear() {
     first.textContent = ""
